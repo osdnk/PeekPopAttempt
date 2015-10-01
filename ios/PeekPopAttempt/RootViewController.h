@@ -1,9 +1,11 @@
 #import <UIKit/UIKit.h>
-#import "PreviewViewController.h"
+#import "RNPreviewViewController.h"
+#import "RNPreviewView.h"
 
 @interface RootViewController : UIViewController
 
-- (void)setPreviewController:(PreviewViewController *)controller;
+- (void)setPreviewController:(RNPreviewViewController *)controller forReactPreviewView:(RNPreviewView *)reactView;
+- (void)setSourceView:(UIView *)view;
 
 @end
 

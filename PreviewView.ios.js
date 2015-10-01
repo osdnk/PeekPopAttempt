@@ -13,9 +13,12 @@ var { RNPreviewViewManager } = NativeModules;
 var RN_PREVIEW_VIEW_REF = 'native-preview-view-ref';
 
 var PreviewView = React.createClass({
-  propTypes: {},
+  propTypes: {
+    onPop: PropTypes.func,
+  },
 
-  activate() {
+  activate({sourceView}) {
+    RNPreviewViewManager.setSourceView(sourceView);
     RNPreviewViewManager.activate(this.getRootNodeHandle());
   },
 
@@ -25,7 +28,7 @@ var PreviewView = React.createClass({
 
   render() {
     return (
-      <RNPreviewView ref={RN_PREVIEW_VIEW_REF}>
+      <RNPreviewView ref={RN_PREVIEW_VIEW_REF} onPop={this.props.onPop} style={{position: 'absolute'}}>
         {React.Children.map(this.props.children, React.addons.cloneWithProps)}
       </RNPreviewView>
     );

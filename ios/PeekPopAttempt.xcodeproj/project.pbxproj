@@ -23,10 +23,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		CEDAEDCB1BBC72D700A21DB6 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDAEDC81BBC72D700A21DB6 /* PreviewViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEDAEDCC1BBC72D700A21DB6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDAEDCA1BBC72D700A21DB6 /* RootViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CEDAEDE51BBC812600A21DB6 /* RNPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDAEDE21BBC812600A21DB6 /* RNPreviewView.m */; settings = {ASSET_TAGS = (); }; };
 		CEDAEDE61BBC812600A21DB6 /* RNPreviewViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDAEDE41BBC812600A21DB6 /* RNPreviewViewManager.m */; settings = {ASSET_TAGS = (); }; };
+		CEEBE7BF1BBCE3C00076B632 /* RNPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEBE7BE1BBCE3C00076B632 /* RNPreviewViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,14 +131,14 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		CEDAEDC71BBC72D700A21DB6 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewViewController.h; path = PeekPopAttempt/PreviewViewController.h; sourceTree = "<group>"; };
-		CEDAEDC81BBC72D700A21DB6 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewViewController.m; path = PeekPopAttempt/PreviewViewController.m; sourceTree = "<group>"; };
 		CEDAEDC91BBC72D700A21DB6 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = PeekPopAttempt/RootViewController.h; sourceTree = "<group>"; };
 		CEDAEDCA1BBC72D700A21DB6 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = PeekPopAttempt/RootViewController.m; sourceTree = "<group>"; };
 		CEDAEDE11BBC812600A21DB6 /* RNPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNPreviewView.h; path = PeekPopAttempt/RNPreviewView.h; sourceTree = "<group>"; };
 		CEDAEDE21BBC812600A21DB6 /* RNPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNPreviewView.m; path = PeekPopAttempt/RNPreviewView.m; sourceTree = "<group>"; };
 		CEDAEDE31BBC812600A21DB6 /* RNPreviewViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNPreviewViewManager.h; path = PeekPopAttempt/RNPreviewViewManager.h; sourceTree = "<group>"; };
 		CEDAEDE41BBC812600A21DB6 /* RNPreviewViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNPreviewViewManager.m; path = PeekPopAttempt/RNPreviewViewManager.m; sourceTree = "<group>"; };
+		CEEBE7BD1BBCE3C00076B632 /* RNPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RNPreviewViewController.h; path = PeekPopAttempt/RNPreviewViewController.h; sourceTree = "<group>"; };
+		CEEBE7BE1BBCE3C00076B632 /* RNPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNPreviewViewController.m; path = PeekPopAttempt/RNPreviewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,8 +248,8 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				CEDAEDC71BBC72D700A21DB6 /* PreviewViewController.h */,
-				CEDAEDC81BBC72D700A21DB6 /* PreviewViewController.m */,
+				CEEBE7BD1BBCE3C00076B632 /* RNPreviewViewController.h */,
+				CEEBE7BE1BBCE3C00076B632 /* RNPreviewViewController.m */,
 				CEDAEDC91BBC72D700A21DB6 /* RootViewController.h */,
 				CEDAEDCA1BBC72D700A21DB6 /* RootViewController.m */,
 				CEDAEDE11BBC812600A21DB6 /* RNPreviewView.h */,
@@ -549,9 +549,9 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				CEDAEDE61BBC812600A21DB6 /* RNPreviewViewManager.m in Sources */,
 				CEDAEDE51BBC812600A21DB6 /* RNPreviewView.m in Sources */,
+				CEEBE7BF1BBCE3C00076B632 /* RNPreviewViewController.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				CEDAEDCC1BBC72D700A21DB6 /* RootViewController.m in Sources */,
-				CEDAEDCB1BBC72D700A21DB6 /* PreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,13 +1,6 @@
-#import "PreviewViewController.h"
+#import "RNPreviewViewController.h"
 
-@interface PreviewViewController ()
-@end
-
-@implementation PreviewViewController
-
-- (void)viewDidLoad {
-  [super viewDidLoad];
-}
+@implementation RNPreviewViewController
 
 #pragma mark - Preview Actions
 

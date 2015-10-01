@@ -1,25 +1,32 @@
 #import "RootViewController.h"
-#import "PreviewViewController.h"
+#import "RNPreviewViewController.h"
+#import "RNPreviewView.h"
 
 @interface RootViewController () <UIViewControllerPreviewingDelegate>
 @end
 
 @implementation RootViewController {
-  PreviewViewController *_previewController;
+  RNPreviewViewController *_previewController;
+  RNPreviewView *_reactView;
 }
 
-- (void)setPreviewController:(PreviewViewController *)controller {
+- (void)setPreviewController:(RNPreviewViewController *)controller forReactPreviewView:(RNPreviewView *)reactView
+{
   _previewController = controller;
+  _reactView = reactView;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-  [self registerForPreviewingWithDelegate:(id)self sourceView:self.view];
+- (void)setSourceView:(RCTView *)view
+{
+  NSLog(@"setting source view!");
+  [self registerForPreviewingWithDelegate:(id)self sourceView:view];
 }
 
 # pragma mark - 3D Touch Delegate
 
-- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
-  if ([self.presentedViewController isKindOfClass:[PreviewViewController class]]) {
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
+{
+  if ([self.presentedViewController isKindOfClass:[RNPreviewViewController class]]) {
     return nil;
   }
 
@@ -27,8 +34,9 @@
 }
 
 - (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext
-        commitViewController:(UIViewController *)viewControllerToCommit {
-  /* Send the event across the bridge! */
+        commitViewController:(UIViewController *)viewControllerToCommit
+{
+  [_reactView didPop];
 }
 
 @end

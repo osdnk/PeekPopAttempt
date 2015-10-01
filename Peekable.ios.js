@@ -24,10 +24,8 @@ Peekable.View = React.createClass({
 
   render() {
     let preview = (
-      <Peekable.Preview ref={PREVIEW_REF}>
-        <View style={{position: 'absolute', top: 0, left: 0, bottom: 0, right: 0}}>
-          {this.props.renderPreview()}
-        </View>
+      <Peekable.Preview ref={PREVIEW_REF} onPop={this.props.onPop}>
+        {this.props.renderPreview()}
       </Peekable.Preview>
     );
 
@@ -42,7 +40,9 @@ Peekable.View = React.createClass({
   },
 
   _handlePressIn() {
-    this.refs[PREVIEW_REF].activate();
+    this.refs[PREVIEW_REF].activate({
+      sourceView: React.findNodeHandle(this._root)
+    });
   },
 });
 

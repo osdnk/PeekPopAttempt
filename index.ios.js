@@ -13,6 +13,7 @@ var {
   PropTypes,
   TouchableWithoutFeedback,
   NativeModules,
+  Image,
 } = React;
 var Peekable = require('./Peekable');
 
@@ -21,17 +22,19 @@ var PeekPopAttempt = React.createClass({
     return (
       <View style={styles.container}>
         <Peekable.View
-          style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
           renderPreview={this._renderPreviewOne}
           onPop={this._handlePopOne}>
-          <Text>Tap me to peek!</Text>
+          <View style={styles.button}>
+            <Text>Tap me to peek!</Text>
+          </View>
         </Peekable.View>
 
         <Peekable.View
-          style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
           renderPreview={this._renderPreviewTwo}
           onPop={this._handlePopTwo}>
-          <Text>Or maybe tap me to peek!?</Text>
+          <View style={styles.button}>
+            <Text>Or maybe tap me to peek!?</Text>
+          </View>
         </Peekable.View>
       </View>
     );
@@ -39,9 +42,7 @@ var PeekPopAttempt = React.createClass({
 
   _renderPreviewOne() {
     return (
-      <View style={{width: 250, height: 250, backgroundColor: 'red', alignItems: 'center', justifyContent: 'center'}}>
-        <Text style={{fontSize: 16}}>Peeked!</Text>
-      </View>
+      <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} style={{width: 400, height: 400}} />
     )
   },
 
@@ -65,20 +66,14 @@ var PeekPopAttempt = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: 'center',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  button: {
+    padding: 20,
+    backgroundColor: '#eee',
+    borderRadius: 3,
+  }
 });
 
 AppRegistry.registerComponent('PeekPopAttempt', () => PeekPopAttempt);

@@ -1,10 +1,14 @@
 #import "RCTView.h"
-#import "PreviewViewController.h"
+#import "RNPreviewViewController.h"
 #import "RCTBridge.h"
+#import "RCTComponent.h"
 
 @interface RNPreviewView : RCTView
 
+@property (nonatomic, copy) RCTBubblingEventBlock onPop;
+
 - (id)initWithBridge:(RCTBridge *)bridge;
-- (PreviewViewController *)getPreviewViewController;
+- (RNPreviewViewController *)getPreviewViewController;
+- (void)didPop;
 
 @end
