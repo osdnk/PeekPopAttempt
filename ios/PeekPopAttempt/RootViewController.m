@@ -1,6 +1,9 @@
 #import "RootViewController.h"
 #import "RNPreviewViewController.h"
 #import "RNPreviewView.h"
+#import "React/RCTView.h"
+
+@class RCTComponent;
 
 @interface RootViewController () <UIViewControllerPreviewingDelegate>
 @end

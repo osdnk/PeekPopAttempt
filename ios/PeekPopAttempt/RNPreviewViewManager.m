@@ -1,32 +1,25 @@
 #import "RNPreviewViewManager.h"
-#import "RNPreviewView.h"
-#import "RCTBridge.h"
-#import "RCTUIManager.h"
-#import "RCTSparseArray.h"
-#import "AppDelegate.h"
-#import "RootViewController.h"
-#import "RCTConvert.h"
+#import "React/RCTUIManager.h"
+
 
 @implementation RNPreviewViewManager
 
 RCT_EXPORT_MODULE();
 
-@synthesize bridge = _bridge;
-@synthesize methodQueue = _methodQueue;
 
 - (UIView *)view
 {
-  return [[RNPreviewView alloc] initWithBridge:_bridge];
+  return [[RNPreviewView alloc] initWithBridge:self.bridge];
 }
 
 - (dispatch_queue_t)methodQueue
 {
-  return _bridge.uiManager.methodQueue;
+  return RCTGetUIManagerQueue();
 }
 
 RCT_EXPORT_METHOD(setSourceView:(nonnull NSNumber *)reactTag)
 {
-  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, RCTSparseArray *viewRegistry) {
+  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
     RCTView *view = viewRegistry[reactTag];
     RootViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     [rootViewController setSourceView:view];
@@ -36,7 +29,7 @@ RCT_EXPORT_METHOD(setSourceView:(nonnull NSNumber *)reactTag)
 /* Need to be able to set the target view too */
 RCT_EXPORT_METHOD(activate:(nonnull NSNumber *)reactTag)
 {
-  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, RCTSparseArray *viewRegistry) {
+  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
     RNPreviewView *view = viewRegistry[reactTag];
 
     if (![view isKindOfClass:[RNPreviewView class]]) {

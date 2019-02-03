@@ -1,7 +1,6 @@
 #import "RNPreviewView.h"
 #import "RNPreviewViewController.h"
 #import "RCTUIManager.h"
-#import "RCTView.h"
 #import "UIView+React.h"
 
 @implementation RNPreviewView {

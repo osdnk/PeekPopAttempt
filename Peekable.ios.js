@@ -1,13 +1,19 @@
-var React = require('react-native');
-var {
+import React from 'react'
+
+import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
-  PropTypes,
   TouchableWithoutFeedback,
   NativeModules,
-} = React;
+  findNodeHandle
+} from 'react-native';
+
+import createClass from 'create-react-class'
+
+import PropTypes from 'prop-types'
+
 
 var Peekable = {};
 
@@ -15,16 +21,16 @@ var PREVIEW_REF = 'peekable-preview';
 
 Peekable.Preview = require('./PreviewView');
 
-Peekable.View = React.createClass({
-  propTypes: {
+class PeekableView extends React.Component {
+  static propTypes = {
     renderPreview: PropTypes.func,
     onPop: PropTypes.func,
     ...View.propTypes,
-  },
-
+  }
+  previewRef = React.createRef();
   render() {
     let preview = (
-      <Peekable.Preview ref={PREVIEW_REF} onPop={this.props.onPop}>
+      <Peekable.Preview ref={this.previewRef} onPop={this.props.onPop}>
         {this.props.renderPreview()}
       </Peekable.Preview>
     );
@@ -37,13 +43,14 @@ Peekable.View = React.createClass({
         </View>
       </TouchableWithoutFeedback>
     )
-  },
+  }
 
-  _handlePressIn() {
-    this.refs[PREVIEW_REF].activate({
-      sourceView: React.findNodeHandle(this._root)
+  _handlePressIn = () => {
+    this.previewRef.current && this.previewRef.current.activate({
+      sourceView: findNodeHandle(this._root)
     });
-  },
-});
+  }
+}
+Peekable.View = PeekableView
 
 module.exports = Peekable;

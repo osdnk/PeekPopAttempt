@@ -1,6 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "RNPreviewViewController.h"
 #import "RNPreviewView.h"
+@class RCTComponent;
 
 @interface RootViewController : UIViewController
 

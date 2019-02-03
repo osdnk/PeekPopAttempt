@@ -4,21 +4,46 @@
  */
 'use strict';
 
-var React = require('react-native');
-var {
+import React from 'react'
+import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
-  PropTypes,
   TouchableWithoutFeedback,
   NativeModules,
   Image,
-} = React;
+} from 'react-native';
+
+import PropTypes from 'prop-types'
+import createClass from 'create-react-class'
+
 var Peekable = require('./Peekable');
 
-var PeekPopAttempt = React.createClass({
-  render: function() {
+
+class PeekPopAttempt extends React.Component {
+  _renderPreviewOne() {
+    return (
+      <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} style={{width: 400, height: 400}} />
+    )
+  }
+
+  _handlePopOne() {
+    alert('pop first one!');
+  }
+
+  _renderPreviewTwo() {
+    return (
+      <View style={{width: 250, height: 250, backgroundColor: 'green', alignItems: 'center', justifyContent: 'center'}}>
+        <Text style={{fontSize: 16}}>Peeked!</Text>
+      </View>
+    )
+  }
+
+  _handlePopTwo() {
+    alert('pop second one!');
+  }
+  render() {
     return (
       <View style={styles.container}>
         <Peekable.View
@@ -38,30 +63,8 @@ var PeekPopAttempt = React.createClass({
         </Peekable.View>
       </View>
     );
-  },
-
-  _renderPreviewOne() {
-    return (
-      <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} style={{width: 400, height: 400}} />
-    )
-  },
-
-  _handlePopOne() {
-    alert('pop first one!');
-  },
-
-  _renderPreviewTwo() {
-    return (
-      <View style={{width: 250, height: 250, backgroundColor: 'green', alignItems: 'center', justifyContent: 'center'}}>
-        <Text style={{fontSize: 16}}>Peeked!</Text>
-      </View>
-    )
-  },
-
-  _handlePopTwo() {
-    alert('pop second one!');
   }
-});
+}
 
 var styles = StyleSheet.create({
   container: {
@@ -76,4 +79,4 @@ var styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('PeekPopAttempt', () => PeekPopAttempt);
+AppRegistry.registerComponent('example', () => PeekPopAttempt);
