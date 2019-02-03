@@ -32,6 +32,8 @@
   if ([self.presentedViewController isKindOfClass:[RNPreviewViewController class]]) {
     return nil;
   }
+  
+  [_previewController setView:_reactView];
 
   return _previewController;
 }

@@ -24,7 +24,7 @@ var Peekable = require('./Peekable');
 class PeekPopAttempt extends React.Component {
   _renderPreviewOne() {
     return (
-      <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} style={{width: 400, height: 400}} />
+      <Image source={{uri: 'https://osdnk.github.io/static/media/picture.b54004e8.jpg'}} style={{width: 400, height: 400}} />
     )
   }
 
@@ -32,7 +32,7 @@ class PeekPopAttempt extends React.Component {
     alert('pop first one!');
   }
 
-  _renderPreviewTwo() {
+  _renderPreviewTwo = () => {
     return (
       <View style={{width: 250, height: 250, backgroundColor: 'green', alignItems: 'center', justifyContent: 'center'}}>
         <Text style={{fontSize: 16}}>Peeked!</Text>
@@ -41,7 +41,7 @@ class PeekPopAttempt extends React.Component {
   }
 
   _handlePopTwo() {
-    alert('pop second one!');
+    alert('pop secondsd    one!');
   }
   render() {
     return (
@@ -53,7 +53,6 @@ class PeekPopAttempt extends React.Component {
             <Text>Tap me to peek!</Text>
           </View>
         </Peekable.View>
-
         <Peekable.View
           renderPreview={this._renderPreviewTwo}
           onPop={this._handlePopTwo}>

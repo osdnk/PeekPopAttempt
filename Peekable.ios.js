@@ -39,14 +39,16 @@ class PeekableView extends React.Component {
       <TouchableWithoutFeedback onPressIn={this._handlePressIn}>
         <View {...this.props} ref={(view) => { this._root = view; }}>
           {this.props.children}
-          {preview}
+          <View style={{ width: 0, height: 0, overflow: 'hidden' }}>
+           {preview}
+          </View>
         </View>
       </TouchableWithoutFeedback>
     )
   }
 
   _handlePressIn = () => {
-    this.previewRef.current && this.previewRef.current.activate({
+    this.previewRef.current.activate({
       sourceView: findNodeHandle(this._root)
     });
   }

@@ -30,12 +30,12 @@
   }
 }
 
-- (NSArray *)reactSubviews
+- (NSArray *)__reactSubviews
 {
   return [NSArray arrayWithObjects:_previewBaseView, nil];
 }
 
-- (void)insertReactSubview:(UIView *)view atIndex:(NSInteger)atIndex
+- (void)__insertReactSubview:(UIView *)view atIndex:(NSInteger)atIndex
 {
   [_previewBaseView insertReactSubview:view atIndex:atIndex];
 }
