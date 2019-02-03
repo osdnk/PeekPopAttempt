@@ -14,30 +14,30 @@ import PropTypes from 'prop-types'
 
 var { RNPreviewViewManager } = NativeModules;
 
-var RN_PREVIEW_VIEW_REF = 'native-preview-view-ref';
 
-var PreviewView = createClass({
+class PreviewView extends React.Component {
   propTypes: {
     onPop: PropTypes.func,
-  },
+  }
 
   activate({sourceView}) {
     RNPreviewViewManager.setSourceView(sourceView);
     RNPreviewViewManager.activate(this.getRootNodeHandle());
-  },
+  }
 
   getRootNodeHandle() {
-    return findNodeHandle(this.refs[RN_PREVIEW_VIEW_REF]);
-  },
+    return findNodeHandle(this.previewView.current);
+  }
 
+  previewView = React.createRef()
   render() {
     return (
-      <RNPreviewView ref={RN_PREVIEW_VIEW_REF} onPop={this.props.onPop} style={{position: 'absolute'}}>
+      <RNPreviewView ref={this.previewView} onPop={this.props.onPop} style={{position: 'absolute'}}>
         {React.Children.map(this.props.children,React.cloneElement)}
       </RNPreviewView>
     );
-  },
-});
+  }
+};
 
 var RNPreviewView = requireNativeComponent('RNPreviewView', PreviewView);
 
