@@ -42,6 +42,6 @@ RCT_EXPORT_METHOD(activate:(nonnull NSNumber *)reactTag)
   }];
 }
 
-RCT_EXPORT_VIEW_PROPERTY(onPop, RCTBubblingEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onPop, RCTDirectEventBlock);
 
 @end
