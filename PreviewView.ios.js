@@ -21,12 +21,7 @@ class PreviewView extends React.Component {
   }
 
   activate({sourceView}) {
-    RNPreviewViewManager.setSourceView(sourceView);
-    RNPreviewViewManager.activate(this.getRootNodeHandle());
-  }
-
-  getRootNodeHandle() {
-    return findNodeHandle(this.previewView.current);
+    RNPreviewViewManager.setSourceViewAndActivate(sourceView, findNodeHandle(this.previewView.current));
   }
 
   previewView = React.createRef()

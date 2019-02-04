@@ -17,28 +17,15 @@ RCT_EXPORT_MODULE();
   return RCTGetUIManagerQueue();
 }
 
-RCT_EXPORT_METHOD(setSourceView:(nonnull NSNumber *)reactTag)
+RCT_EXPORT_METHOD(setSourceViewAndActivate:(nonnull NSNumber *)peekable:(nonnull NSNumber *)preview)
 {
   [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
-    RCTView *view = viewRegistry[reactTag];
-    RootViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
-    [rootViewController setSourceView:view];
-  }];
-}
-
-/* Need to be able to set the target view too */
-RCT_EXPORT_METHOD(activate:(nonnull NSNumber *)reactTag)
-{
-  [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
-    RNPreviewView *view = viewRegistry[reactTag];
-
-    if (![view isKindOfClass:[RNPreviewView class]]) {
-      RCTLogError(@"Invalid view returned from registry, expecting RNPreviewView, got: %@", view);
-    } else {
-      RNPreviewViewController *controller = [view getPreviewViewController];
-      RootViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
-      [rootViewController setPreviewController:controller forReactPreviewView:view];
-    }
+    RCTView *peekableView = (RCTView *)viewRegistry[peekable];
+    RootViewController *rootViewController = (RootViewController *)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
+    [rootViewController setSourceView:peekableView];
+    RNPreviewView *previewView = (RNPreviewView *)viewRegistry[preview];
+    RNPreviewViewController *controller = [previewView getPreviewViewController];
+    [rootViewController setPreviewController:controller forReactPreviewView:previewView];
   }];
 }
 
