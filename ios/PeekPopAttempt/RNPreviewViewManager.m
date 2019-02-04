@@ -21,14 +21,15 @@ RCT_EXPORT_METHOD(setSourceViewAndActivate:(nonnull NSNumber *)peekable:(nonnull
 {
   [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {
     RCTView *peekableView = (RCTView *)viewRegistry[peekable];
+    RNPreviewView *previewView = (RNPreviewView *)viewRegistry[preview];
     RootViewController *rootViewController = (RootViewController *)[[[[UIApplication sharedApplication] delegate] window] rootViewController];
     [rootViewController setSourceView:peekableView];
-    RNPreviewView *previewView = (RNPreviewView *)viewRegistry[preview];
     RNPreviewViewController *controller = [previewView getPreviewViewController];
     [rootViewController setPreviewController:controller forReactPreviewView:previewView];
   }];
 }
 
 RCT_EXPORT_VIEW_PROPERTY(onPop, RCTDirectEventBlock);
+RCT_EXPORT_VIEW_PROPERTY(onPeek, RCTDirectEventBlock);
 
 @end

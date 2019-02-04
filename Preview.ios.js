@@ -1,10 +1,7 @@
 'use strict';
 
 import React from 'react'
-import createClass from 'create-react-class'
 import {
-  View,
-  StyleSheet,
   NativeModules,
   requireNativeComponent,
   findNodeHandle
@@ -12,12 +9,13 @@ import {
 
 import PropTypes from 'prop-types'
 
-var { RNPreviewViewManager } = NativeModules;
+const  { RNPreviewViewManager } = NativeModules;
 
 
-class PreviewView extends React.Component {
+export default class Preview extends React.Component {
   propTypes: {
     onPop: PropTypes.func,
+    onPeek: PropTypes.func,
   }
 
   activate({sourceView}) {
@@ -27,13 +25,11 @@ class PreviewView extends React.Component {
   previewView = React.createRef()
   render() {
     return (
-      <RNPreviewView ref={this.previewView} onPop={this.props.onPop} style={{position: 'absolute'}}>
+      <RNPreviewView ref={this.previewView} onPop={this.props.onPop} onPeek={this.props.onPeek} style={{position: 'absolute'}}>
         {React.Children.map(this.props.children,React.cloneElement)}
       </RNPreviewView>
     );
   }
 };
 
-var RNPreviewView = requireNativeComponent('RNPreviewView', PreviewView);
-
-module.exports = PreviewView;
+const RNPreviewView = requireNativeComponent('RNPreviewView', Preview);

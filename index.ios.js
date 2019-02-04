@@ -1,24 +1,15 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
-'use strict';
-
 import React from 'react'
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
-  TouchableWithoutFeedback,
-  NativeModules,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 
-import PropTypes from 'prop-types'
-import createClass from 'create-react-class'
 
-var Peekable = require('./Peekable');
+import Peekable from './Peekable'
 
 
 class PeekPopAttempt extends React.Component {
@@ -46,20 +37,28 @@ class PeekPopAttempt extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Peekable.View
+        <Peekable
           renderPreview={this._renderPreviewOne}
           onPop={this._handlePopOne}>
           <View style={styles.button}>
             <Text>Tap me to peek!</Text>
           </View>
-        </Peekable.View>
-        <Peekable.View
+        </Peekable>
+        <Peekable
           renderPreview={this._renderPreviewTwo}
           onPop={this._handlePopTwo}>
           <View style={styles.button}>
             <Text>Or maybe tap me to peek!?</Text>
           </View>
-        </Peekable.View>
+        </Peekable>
+        <Peekable
+          renderPreview={this._renderPreviewTwo}
+          onPress={() => alert('XXX')}
+          onPop={this._handlePopTwo}>
+          <View style={styles.button}>
+            <Text>Or maybe tap me to peek!?</Text>
+          </View>
+        </Peekable>
       </View>
     );
   }

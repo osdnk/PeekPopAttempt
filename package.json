@@ -6,10 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "create-react-class": "^15.6.3",
     "prop-types": "^15.6.2",
     "react": "16.6.3",
-    "react-addons-clone-with-props": "^0.14.8",
     "react-native": "0.58.3"
   }
 }

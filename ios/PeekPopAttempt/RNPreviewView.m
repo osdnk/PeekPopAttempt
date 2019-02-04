@@ -30,6 +30,13 @@
   }
 }
 
+- (void)didPeek
+{
+  if (_onPeek) {
+    _onPeek(@{});
+  }
+}
+
 - (NSArray *)__reactSubviews
 {
   return [NSArray arrayWithObjects:_previewBaseView, nil];
